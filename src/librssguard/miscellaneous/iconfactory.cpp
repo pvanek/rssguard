@@ -64,6 +64,7 @@ void IconFactory::setCurrentIconTheme(const QString& theme_name) {
 }
 
 void IconFactory::loadCurrentIconTheme() {
+#ifndef Q_OS_LINUX
   const QStringList installed_themes = installedIconThemes();
   const QString theme_name_from_settings = qApp->settings()->value(GROUP(GUI), SETTING(GUI::IconTheme)).toString();
 
@@ -90,6 +91,7 @@ void IconFactory::loadCurrentIconTheme() {
              qPrintable(theme_name_from_settings));
     QIcon::setThemeName(APP_NO_THEME);
   }
+#endif
 }
 
 QStringList IconFactory::installedIconThemes() const {

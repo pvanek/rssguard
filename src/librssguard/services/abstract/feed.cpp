@@ -67,8 +67,8 @@ QVariant Feed::data(int column, int role) const {
     case Qt::ForegroundRole:
       switch (status()) {
         case NewMessages:
-          return QColor(Qt::blue);
-
+          //return QColor(Qt::blue);
+          return qApp->palette().color(QPalette::Active, QPalette::BrightText);
         case NetworkError:
         case ParsingError:
         case AuthError:
